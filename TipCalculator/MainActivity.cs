@@ -12,12 +12,18 @@ namespace TipCalculator
     [Activity(Label = "@string/app_name", Theme = "@style/AppTheme.NoActionBar", MainLauncher = true)]
     public class MainActivity : AppCompatActivity
     {
+        EditText inputBill;
+        Button caculateButton;
+        TextView outputTip;
+        TextView outputTotal;
 
-        protected override void OnCreate(Bundle savedInstanceState)
+        protected override void OnCreate(Bundle bundle)
         {
-            base.OnCreate(savedInstanceState);
-            Xamarin.Essentials.Platform.Init(this, savedInstanceState);
+            base.OnCreate(bundle);
+            Xamarin.Essentials.Platform.Init(this, bundle);
             SetContentView(Resource.Layout.activity_main);
+
+            inputBill = FindViewById<EditText>(Resource.Id.inputBill);
 
             Android.Support.V7.Widget.Toolbar toolbar = FindViewById<Android.Support.V7.Widget.Toolbar>(Resource.Id.toolbar);
             SetSupportActionBar(toolbar);
